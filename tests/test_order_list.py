@@ -1,5 +1,6 @@
-import allure
 from http import HTTPStatus
+
+import allure
 
 
 class TestOrderList:

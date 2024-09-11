@@ -1,10 +1,10 @@
+from http import HTTPStatus
+
 import allure
 import pytest
-from http import HTTPStatus
-from helpers.response_messages_helper import (
-    DUPLICATE_COURIER_MESSAGE,
-    CREATE_ERROR_FIELD_MESSAGE
-)
+
+from helpers.response_messages_helper import (CREATE_ERROR_FIELD_MESSAGE,
+                                              DUPLICATE_COURIER_MESSAGE)
 
 
 class TestCreateCourier:
@@ -32,10 +32,11 @@ class TestCreateCourier:
         data = request.getfixturevalue(data)
         response = client.post_courier(data=data)
         response_json = response.json()
+        delete_courier(client, data)
         assert response.status_code == HTTPStatus.CREATED
         assert 'ok' in response.json()
         assert response_json.get('ok') is True
-        delete_courier(client, data)
+
 
     @allure.title('Регистрация существующего курьера')
     def test_create_duplicate_courier(self, client, user_data, delete_courier):

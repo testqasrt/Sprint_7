@@ -1,7 +1,8 @@
+import json
+
+import allure
 from requests.exceptions import RequestException
 from requests.sessions import Session
-import json
-import allure
 
 
 class QAScooterClient:

@@ -1,11 +1,11 @@
+from http import HTTPStatus
+
 import allure
 import pytest
+
 from helpers.courier_data_helper import REGISTERED_USER_DATA
 from helpers.response_messages_helper import (
-    LOGIN_ERROR_FIELD_MESSAGE,
-    LOGIN_ERROR_USER_NOT_FOUND_MESSAGE
-)
-from http import HTTPStatus
+    LOGIN_ERROR_FIELD_MESSAGE, LOGIN_ERROR_USER_NOT_FOUND_MESSAGE)
 
 
 class TestLoginCourier:

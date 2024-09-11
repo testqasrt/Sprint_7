@@ -1,6 +1,7 @@
 import pytest
-from qa_scooter_client import QAScooterClient
+
 from helpers.courier_data_helper import generate_random_register_data
+from qa_scooter_client import QAScooterClient
 
 
 @pytest.fixture

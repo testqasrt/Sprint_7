@@ -1,7 +1,9 @@
+from http import HTTPStatus
+
 import allure
 import pytest
+
 from helpers.order_data_helper import ORDER_DATA_STUB
-from http import HTTPStatus
 
 
 class TestOrderCreate:
