@@ -1,5 +1,5 @@
 # Sprint_7
-# Комментарий: Иногда тесты падают по таймауту, ничего не могу с этим сделать
+# Тест падает по таймауту: FAILED tests/test_login_courier.py::TestLoginCourier::test_login_without_required_key[user_data_without_password] - assert 504 == <HTTPStatus.BAD_REQUEST: 400>
 
 * Установка и запуск
 ```

@@ -5,21 +5,29 @@ from qa_scooter_client import QAScooterClient
 
 
 @pytest.fixture
-def delete_courier():
-    def _delete_courier(client, user_data):
-        id = client.post_login(data=user_data).json().get('id')
-        client.delete_courier(id)
-    return _delete_courier
+def delete_courier_list(client):
+    courier_list = []
+    yield courier_list
+    for courier_data in courier_list:
+        try:
+            client.delete_courier(
+                client.post_login(data=courier_data).json().get("id")
+            )
+        except Exception:
+            # При возникновении ошибок при попытке удаления курьера
+            # всегда будет происходить запись данных в файл,
+            # который можно использовать для анализа после прохождения тестов
+            with open('couriers_to_delete.txt', 'w') as f:
+                f.write(str(courier_data) + "\n")
 
 
 @pytest.fixture
 def client():
     client = QAScooterClient()
-    client.session.headers.update({'Content-Type': 'application/json'})
+    client.session.headers.update({"Content-Type": "application/json"})
     return client
 
 
 @pytest.fixture
 def user_data():
     return generate_random_register_data()
-

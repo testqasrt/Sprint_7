@@ -7,5 +7,5 @@ ORDER_DATA_STUB = dict(
     rentTime=5,
     deliveryDate="2020-06-06",
     comment="Saske, come back to Konoha",
-    color=[]
+    color=[],
 )
